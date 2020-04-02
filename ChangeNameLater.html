@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>ChangeNameLater: The Game</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: black;
+      color: white;
+    }
+
+    .imgcontain {
+      width: 100px;
+    }
+
+    .borderlol {
+      border-color: darkgrey;
+      border-style: solid;
+      border-width: 5px;
+      color: black;
+    }
+
+    .prog {
+      background-color: grey;
+    }
+
+    .fanta {
+      background-color: #FC8102;
+    }
+
+    .col {
+      background-color: #595959;
+      color: white;
+    }
+  </style>
+</head>
+<body onload="init()">
+
+  <div class="col jumbotron text-center" style="margin-bottom:0;">
+    <h1>ChangeNameLater: The Game</h1>
+    <p>A Dystopian Storyline Based Game!</p>
+  </div>
+
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><p>ChangeNameLater</p></a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="CNLHome.html">Home</a></li>
+          <li class="active"><a href="#">Game</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 text-center" style="background-color: lightgreen; color: black">
+          <h4>~~~ The Current Year: <span id="currYear">2030</span> ~~~</h4>
+        </div>
+        <div class="col-sm-12 text-center" style="background-color: purple;">
+          <h4>~~~ Money: <span id="currYear">1000</span> UD ~~~</h4>
+        </div>
+        <div class="col-sm-12">
+          <div class="text-center col-sm-6">
+            <h5>Pollution Increase/Decrease per turn (AQI)</h5>
+            <div class="col-sm-12 d-inline">
+              <div class="progress">
+                <div class="progress-bar progress-bar-success" id="minusProgEH" role="progressbar" style="width:10%">
+                  <p id="minusEHlb" style="position: relative;">-10 AQI</p>
+                </div>
+                <div class="progress-bar progress-bar-danger" id="plusProgEH" role="progressbar" style="width:90%">
+                  <p id ="plusEHlb" style="position: relative;">+90 AQI</p>
+                </div>
+              </div> <!-- PoIn/DePT -->
+            </div>
+            <!--<br style="display: block; line-height: 100%">-->
+          </div>
+          <div class="text-center col-sm-6">
+            <h5>Public Awareness Level (people)</h5>
+            <div class="col-sm-12 d-inline">
+              <div class="progress">
+                <div class="progress-bar fanta" id="progPA" role="progressbar" style="width:0%">
+                  <p id="pAlb" style="position: relative;">0 people</p>
+                </div>
+              </div> <!-- PuAwL -->
+            </div>
+            <!--<br style="display: block; line-height: 100%">-->
+          </div>
+          <div class="text-center col-sm-12">
+            <h5>Air Pollution Level (AQI)</h5>
+            <div class="col-sm-12 d-inline">
+              <div class="progress">
+                <div class="progress-bar prog" id="proggPoll" role="progressbar" style="width:50%">
+                  <p id="pollLb" style="position: relative;">500 AQI (Ok-ish)</p>
+                </div>
+              </div> <!-- APL -->
+            </div>
+            <!--<br style="display: block; line-height: 100%">-->
+          </div>
+
+
+        <div class="col-sm-12 text-center">
+
+          <p id="proposal" style="text-align: center;">[Proposal]</p><br>
+          <button id="visButton" class="btn borderlol" style="width: 150px; background-color: lightgreen;">Start the Game!</button>
+          <div id="buttonDiv" style="visibility: hidden;">
+            <button id="opt1" class="btn borderlol" style="width: 200px; background-color: lightblue;">Do it!</button> <br><br>
+            <button id="opt2" class="btn borderlol" style="width: 200px; background-color: lightblue;">Semi-fund it</button> <br><br>
+            <button id="opt3" class="btn borderlol" style="width: 200px; background-color: lightblue;">NO NO NO NO NO NO NO</button> <br><br>
+          </div>
+        </div>
+        <!--<img class="img-responsive imgcontain" src="Images/BackgroundImage-normal.png"></img>-->
+      </div>
+    </div>
+  </div>
+  <div class="jumbotron text-center col" style="margin-bottom:0">
+    <p>Find us on Social Media!</p>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="JSSheets/CNLGame.js"></script>
+</body>
+</html>
