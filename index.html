@@ -33,17 +33,16 @@
       animation-iteration-count: infinite;
       animation-timing-function: linear;
       animation-name: ticker;
-      animation-duration: 50s;
-    }
-    .ticker-move:hover{
-      animation-play-state: paused;
+      animation-duration: 5000s;
     }
     .ticker-item{
       display: inline-block;
-      padding: 0 2rem;
+      padding: 0 0;
     }
     /*The code above is for the news ticker*/
-
+    .disable-select{
+      user-select:none;
+    }
     body {
       background-color: black;
       color: white;
@@ -74,15 +73,12 @@
     }
   </style>
 </head>
-<body onload="init()">
+<body>
 
-  <div class="tcontainer col-sm-12">
+  <div class="tcontainer col-sm-12 disable-select">
     <div class="ticker-wrap">
-      <div class="ticker-move">
-        <div class="ticker-item">You are a business man from the UN with a reputation of a homeless man... Yeah so save Earth from pollution, good luck</div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-        <div class="ticker-item">Don't die from corona or global warming >:).</div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-        <div class="ticker-item">FREEZE YOUR BRAIN (Like how freezing earth is also a good idea).</div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-        <div class="ticker-item">flkdjasluisenifnidsajiofjdklsajk;.</div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+      <div class="ticker-move" id="inbetween">
+        
       </div>
     </div>
   </div>
@@ -119,7 +115,7 @@
           <h4>~~~ The Current Year: <span id="currYear">2030</span> ~~~</h4>
         </div>
         <div class="col-sm-12 text-center" style="background-color: purple;">
-          <h4>~~~ Money: <span id="currYear">1000</span> UD ~~~</h4>
+          <h4>~~~ Money: <span id="monLb">1000</span> UD ~~~</h4>
         </div>
         <div class="col-sm-12">
           <div class="text-center col-sm-6">
@@ -159,27 +155,29 @@
             <!--<br style="display: block; line-height: 100%">-->
           </div>
 
-
-        <div class="col-sm-12 text-center">
-
+        <div id="gameBar" class="col-sm-12 text-center">
           <p id="proposal" style="text-align: center;">[Proposal]</p><br>
           <button id="visButton" class="btn borderlol" style="width: 150px; background-color: lightgreen;">Start the Game!</button>
           <div id="buttonDiv" style="visibility: hidden;">
-            <button id="opt1" class="btn borderlol" style="width: 200px; background-color: lightblue;">Do it!</button> <br><br>
-            <button id="opt2" class="btn borderlol" style="width: 200px; background-color: lightblue;">Semi-fund it</button> <br><br>
-            <button id="opt3" class="btn borderlol" style="width: 200px; background-color: lightblue;">NO NO NO NO NO NO NO</button> <br><br>
+            <button id="opt1" class="btn borderlol" style="width: 400px; background-color: lightblue;">Do it!</button> <br><br>
+            <button id="opt2" class="btn borderlol" style="width: 400px; background-color: lightblue;">Semi-fund it</button> <br><br>
+            <button id="opt3" class="btn borderlol" style="width: 400px; background-color: lightblue;">NO NO NO NO NO NO NO</button> <br><br>
           </div>
         </div>
-        <!--<img class="img-responsive imgcontain" src="Images/BackgroundImage-normal.png"></img>-->
+        <div class="text-center">
+          <h3>Current State:</h3>
+          <img id="randomImg" style="width: 20%; height: 20%" src="Images/BackgroundImage-75%.png"></img>
+        </div>
       </div>
     </div>
   </div>
   <div class="jumbotron text-center col" style="margin-bottom:0">
-    <p>Find us on Social Media!</p>
+    <p>Find us on Social Media! <br><img src="Images/Insta.png" style="width:3%; height:3%;"></img> <a src="https://www.instagram.com/airpollutionhk_game/" style="color:white; cursor:pointer">Instagram</a> <h6>yeah that's it what did you expect</h6></p>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="JSSheets/CNLGame.js"></script>
-  <iframe src="https://www.youtuberepeater.com/watch?v=Ca6fCx5PFdE#gsc.tab=0" volume="" allow="autoplay" style="display:none" id="iframeAudio"></iframe>
+  <script src="JSSheets/RandomTicker.js"></script>
+  <!--<iframe src="https://www.youtuberepeater.com/watch?v=Ca6fCx5PFdE#gsc.tab=0" volume="" allow="autoplay" style="display:none" id="iframeAudio"></iframe>-->
 </body>
 </html>
