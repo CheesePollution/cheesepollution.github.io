@@ -88,9 +88,6 @@ document.getElementById('opt3').onclick = foo3;
 
 function init() { //check if change section or no and stuff //shuffles and sets currentQuestion on initialization
 
-  console.log("init");
-
-
   if (questionIndex == 6) {
     currentQuestion = shuffledArray2[0];
     document.getElementById("proposal").innerHTML = currentQuestion;
@@ -157,7 +154,6 @@ function updateValues() {
 }
 
 function vis() { //initialization
-  console.log("vis");
   document.getElementById('buttonDiv').style.visibility = "visible";
   document.getElementById('visButton').style.visibility = "hidden";
   shuffledArray1 = shuffle(questions1);
@@ -200,7 +196,6 @@ function vis() { //initialization
 }
 
 function changeValues() {
-  console.log("change value");
   if (selectedProbability[0] == 0 && choice == 1) { //if not a repeatable question
     valueLol = pollutionsPoints[questionNumber];
   } else if (selectedProbability[0] == 0 && choice == 2) {
@@ -262,7 +257,6 @@ function changeValues() {
 
 //foos change question
 function generalFoo() {
-  console.log("foo general");
   if (countRepeat == true) {
     if (repeatCounter != 7){
       repeatCounter++;
@@ -405,7 +399,7 @@ function generalFoo() {
 
 
 function newQuestion() {
-  console.log("new question");
+
   if (publicAwarenessLevel >= 99000 && pollutionDecreaseLevel >= 90 && money >= 9000 && airPollutionLevel <= 150){
     win();
   } else if (questionIndex == 16 || status == "Dead" || money <= -10000){
@@ -488,40 +482,40 @@ function newQuestion() {
 
     if (canDo == true) {
       if (questionSection == 1) {
-        //console.log("hello");
+        //console.log("temp");
 
         shuffledArray1.splice(0, 1);
         questionNumber = questions1Q.indexOf(currentQuestion);
 
-        //console.log("questionNumber " + questionNumber);
-        //console.log("questions1Q.indexOf(currentQuestion) " + questions1Q.indexOf(currentQuestion));
+        //console.log("temp");
+        //console.log("temp");
       } else if (questionSection == 2) {
-        //console.log("hello");
+        //console.log("temp");
 
         shuffledArray2.splice(0, 1);
         var temp = questions2Q.indexOf(currentQuestion)
         questionNumber = 5 + temp;
 
-        //console.log("questionNumber " + questionNumber);
-        //console.log("questions1Q.indexOf(currentQuestion) " + questions1Q.indexOf(currentQuestion));
+        //console.log("temp");
+        //console.log("temp");
       } else if (questionSection == 3) {
-        //console.log("hello");
+        //console.log("temp");
 
         shuffledArray3.splice(0, 1);
         var temp = questions3Q.indexOf(currentQuestion)
         questionNumber = 8 + temp;
 
-        //console.log("questionNumber " + questionNumber);
-        //console.log("questions1Q.indexOf(currentQuestion) " + questions1Q.indexOf(currentQuestion));
+        //console.log("temp");
+        //console.log("temp");
       } else if (questionSection == 4) {
-        //console.log("hello");
+        //console.log("temp");
 
         shuffledArray4.splice(0, 1);
         var temp = questions4Q.indexOf(currentQuestion)
         questionNumber = 11 + temp;
 
-        //console.log("questionNumber " + questionNumber);
-        //console.log("questions1Q.indexOf(currentQuestion) " + questions1Q.indexOf(currentQuestion));
+        //console.log("temp");
+        //console.log("temp");
       }
     }
 
@@ -531,20 +525,15 @@ function newQuestion() {
 }
 
 function win() {
-
-  console.log("win");
   document.getElementById("gameBar").innerHTML = "<h1>You Win</h1><br><h3>Congrats. <br> You made it very hard for someone to repollute the world. I mean, who would be dumb enough to do that. But, congrats. You passed this game as some random bussiness dude ending air poIIution by spamming buttons. Now go on with your day and do something productive for the environment. By the way, please fill out this google forms for our data collection: <a style='cursor:pointer' src='https://forms.gle/dZW4DPijHNSRrkgd8'>our google forms thing</a>.</h3> <img src='Images/iamnolongerasking.jpg'></img><br>"
 }
 
 function lose() {
-
-  console.log("lose");
   document.getElementById("gameBar").innerHTML = "<h1>Dead at round <span id='oof'></span></h1><br><h3>You killed the World and or lost your chance to redeem yourself. I mean, you could always try again, but before that, please fill out our data collection form: <a style='cursor:pointer' src='https://forms.gle/dZW4DPijHNSRrkgd8'>our google forms thing</a>. Of course, don't repeat your actions in real life. Please.</h3> <img src='Images/iamnolongerasking.jpg'></img><br>"
   document.getElementById("oof").innerHTML = questionIndex;
 }
 
 function changeBtn() {
-  console.log("change button");
   if (selectedProbability[0] == 0) {
     if (changed == false) {
       document.getElementById("opt1").innerHTML = questionsResponse[questionNumber][0];
@@ -563,7 +552,6 @@ function changeBtn() {
 }
 
 function cheatToWin() {
-  console.log("cheat");
   if (prompt("Password:") == "ilikecheese"){
     money = money+1000000000000000000000;
     airPollutionLevel = 0;
@@ -583,19 +571,16 @@ function cheatToWin() {
 }
 
 function foo1() {
-  console.log("foo1");
   choice = 1;
   generalFoo();
 }
 
 function foo2() {
-  console.log("foo2");
   choice = 2;
   generalFoo();
 }
 
 function foo3() {
-  console.log("foo3");
   choice = 3;
   generalFoo();
 }
