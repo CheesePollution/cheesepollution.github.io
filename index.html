@@ -1,94 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-  <title>ChangeNameLater: The Game</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <link rel="shortcut icon" href="favicon.ico" />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home Page</title>
   <style>
+  body {
+    background-color: black;
+    color: white;
+  }
+  .col {
+    background-color: #595959;
+    color: white;
+  }
 
-    @keyframes ticker {
-      0% { transform: translate3d(0, 0, 0); }
-      100% { transform: translate3d(-100%, 0, 0); }
-    }
-    .tcontainer{
-      width: 100%;
-      overflow: hidden;
-      background-color: black;
-      height: 40px;
-    }
-    .ticker-wrap {
-      width: 100%;
-      padding-left: 100%;
-      background-color: black;
-      height: 40px;
-      font-size: 20px;
-    }
-    .ticker-move {
-      display: inline-block;
-      white-space: nowrap;
-      padding-right: 100%;
-      animation-iteration-count: infinite;
-      animation-timing-function: linear;
-      animation-name: ticker;
-      animation-duration: 5000s;
-    }
-    .ticker-item{
-      display: inline-block;
-      padding: 0 0;
-    }
-    /*The code above is for the news ticker*/
-    .disable-select{
-      user-select:none;
-    }
-    body {
-      background-color: black;
-      color: white;
-    }
+  .Aknoleedgeoment {
+    border-left: 10px solid gray;
+    padding: 15px;
+  }
 
-    .imgcontain {
-      width: 100px;
-    }
-
-    .borderlol {
-      border-color: darkgrey;
-      border-style: solid;
-      border-width: 5px;
-      color: black;
-    }
-
-    .prog {
-      background-color: grey;
-    }
-
-    .fanta {
-      background-color: #FC8102;
-    }
-
-    .col {
-      background-color: #595959;
-      color: white;
-    }
+  .lol {
+    padding: 15px;
+  }
   </style>
 </head>
 <body>
-
-  <div class="tcontainer col-sm-12 disable-select">
-    <div class="ticker-wrap">
-      <div class="ticker-move" id="inbetween">
-        
-      </div>
-    </div>
-  </div>
-
   <div class="col jumbotron text-center" style="margin-bottom:0;">
-    <h1>ChangeNameLater: The Game</h1>
+    <h1>ChangeNameLater: The Home Page</h1>
     <p>A Dystopian Storyline Based Game!</p>
   </div>
-
-
 
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -102,82 +43,49 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li><a href="CNLHome.html">Home</a></li>
-          <li class="active"><a href="#">Game</a></li>
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="ChangeNameLaterTheGame.html">Game</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12 text-center" style="background-color: lightgreen; color: black">
-          <h4>~~~ The Current Year: <span id="currYear">2030</span> ~~~</h4>
-        </div>
-        <div class="col-sm-12 text-center" style="background-color: purple;">
-          <h4>~~~ Money: <span id="monLb">1000</span> UD ~~~</h4>
-        </div>
-        <div class="col-sm-12">
-          <div class="text-center col-sm-6">
-            <h5>Pollution Increase/Decrease per turn (AQI)</h5>
-            <div class="col-sm-12 d-inline">
-              <div class="progress">
-                <div class="progress-bar progress-bar-success" id="minusProgEH" role="progressbar" style="width:10%">
-                  <p id="minusEHlb" style="position: relative;">-10 AQI</p>
-                </div>
-                <div class="progress-bar progress-bar-danger" id="plusProgEH" role="progressbar" style="width:90%">
-                  <p id ="plusEHlb" style="position: relative;">+90 AQI</p>
-                </div>
-              </div> <!-- PoIn/DePT -->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class = "text-center lol">
+          <div class = "Aknoleedgeoment">
+            <h2>Introduction</h2>
+            <h4>Our game is about air pollution, and the goal of it is to</h4>
             </div>
-            <!--<br style="display: block; line-height: 100%">-->
-          </div>
-          <div class="text-center col-sm-6">
-            <h5>Public Awareness Level (people)</h5>
-            <div class="col-sm-12 d-inline">
-              <div class="progress">
-                <div class="progress-bar fanta" id="progPA" role="progressbar" style="width:0%">
-                  <p id="pAlb" style="position: relative;">0 people</p>
-                </div>
-              </div> <!-- PuAwL -->
+            <h2>How To Play</h2>
+            <h4>You have to make several choices to play the game. First of all, go into the game tab. Then, click start the game. <h6>"This will be the hardest choice you will ever make throughout the entire gamepIay, if I'm gonna be brutally honest" - Hyder</h6><br></h4>
+            <h4>
+              You should see a proposal and several buttons should pop up. These buttons will be your "Options", while the proposal is what the options are reffering to. Select the option that you think will seem the best, with the "best" being something that will help the environment. <br><br>
+              The goal of the game is to get your pollution level really low, while the public awareness should be high. <br><br>
+              Be careful, because your Pollution Increase per turn will add to your pollution. And once the pollution fills up the progress bar, you're dead! Another way to die would be to go bankrupt, so don't do that either. Good luck!</h4><br>
+              <h2>About Us</h2>
+              <h4>We are a group of students from a school called Creative Secondary School, and we're making this website in order to advocate about the effect of Air Pollution. Yes, it's a common topic, but we're trying to do something original, yet old-fashioned - A game. We think it's a good idea, as we can entice other people in our generations, such as Gen Z and Millenials. While they have fun, they learn about Air Pollution and what others can do about them - a Great Trade-off! Our group consists of me, Zion, the Game Dev, Hyder, the Graphics Designer, and Thomas, the <em>Conceptualist</em> </h4><h6>big words haha</h6><h4>Good luck with the game and have fun! :D</h4>
             </div>
-            <!--<br style="display: block; line-height: 100%">-->
-          </div>
-          <div class="text-center col-sm-12">
-            <h5>Air Pollution Level (AQI)</h5>
-            <div class="col-sm-12 d-inline">
-              <div class="progress">
-                <div class="progress-bar prog" id="proggPoll" role="progressbar" style="width:50%">
-                  <p id="pollLb" style="position: relative;">500 AQI (Ok-ish)</p>
-                </div>
-              </div> <!-- APL -->
+            <div class="Aknoleedgeoment">
+              <h2>Aknoleedgeoment</h2>
+              <ul>
+                <li>Zion Chen (Cheese), Game Dev and Website Coder</li>
+                <li>Thomas Au (APY), Inspiration and Structural Setting</li>
+                <li>Hyder Bukhari (Slowpoke), Game Artist, Web Design Fixer (because I, Zion, have terrible art sense), and Sounds and Stuff.</li>
+                <li>Ms. Samantha Wu, Supervisor</li>
+                <li>Ms. Raina Zhaparova, Another Supervisor</li>
+                <li>Ms. Ann Tsang, Also a Supervisor (Trust me we're not that bad, this is a school project)</li>
+                <li>Abigail Chen, Debugging Help and Stuff</li>
+                <li>Random Internet People on Reddit, Quora, and Coding StackExchange, Debugging Help and Stuff (Yeah, I needed a lot of debugging help, but seriously, I'm not that terrible, it's just that the game concept kept changing. Ft. Hyder and Thomas)</li>
+              </ul>
             </div>
-            <!--<br style="display: block; line-height: 100%">-->
-          </div>
+            <br>
+            <br>
+            <br>
 
-        <div id="gameBar" class="col-sm-12 text-center">
-          <p id="proposal" style="text-align: center;">[Proposal]</p><br>
-          <button id="visButton" class="btn borderlol" style="width: 150px; background-color: lightgreen;">Start the Game!</button>
-          <div id="buttonDiv" style="visibility: hidden;">
-            <button id="opt1" class="btn borderlol" style="width: 400px; background-color: lightblue;">Do it!</button> <br><br>
-            <button id="opt2" class="btn borderlol" style="width: 400px; background-color: lightblue;">Semi-fund it</button> <br><br>
-            <button id="opt3" class="btn borderlol" style="width: 400px; background-color: lightblue;">NO NO NO NO NO NO NO</button> <br><br>
           </div>
-        </div>
-        <div class="text-center">
-          <h3>Current State:</h3>
-          <img id="randomImg" style="width: 20%; height: 20%" src="Images/BackgroundImage-75%.png"></img>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="jumbotron text-center col" style="margin-bottom:0">
-    <p>Find us on Social Media! <br><img src="Images/Insta.png" style="width:3%; height:3%;"></img> <a src="https://www.instagram.com/airpollutionhk_game/" style="color:white; cursor:pointer">Instagram</a> <h6>yeah that's it what did you expect</h6></p>
-  </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <script src="JSSheets/CNLGame.js"></script>
-  <script src="JSSheets/RandomTicker.js"></script>
-  <!--<iframe src="https://www.youtuberepeater.com/watch?v=Ca6fCx5PFdE#gsc.tab=0" volume="" allow="autoplay" style="display:none" id="iframeAudio"></iframe>-->
-</body>
-</html>
+    </body>
+    </html>
