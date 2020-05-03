@@ -40,12 +40,26 @@
       padding: 0 0;
     }
     /*The code above is for the news ticker*/
+
+    .tickerv-wrap {
+      animation: animationOfValues 5s 1;
+      position: absolute;
+    }
+
+    @keyframes animationOfValues {
+      0%{opacity:1;}
+      100%{opacity:0;}
+    }
+
     .disable-select{
       user-select:none;
     }
+
     body {
       background-color: black;
       color: white;
+      background-image: "Images/background.png";
+      background-repeat: no-repeat;
     }
 
     .imgcontain {
@@ -155,6 +169,7 @@
             <!--<br style="display: block; line-height: 100%">-->
           </div>
 
+
         <div id="gameBar" class="col-sm-12 text-center">
           <p id="proposal" style="text-align: center;">[Proposal]</p><br>
           <button id="visButton" class="btn borderlol" style="width: 150px; background-color: lightgreen;">Start the Game!</button>
@@ -164,7 +179,11 @@
             <button id="opt3" class="btn borderlol" style="width: 400px; background-color: lightblue;">NO NO NO NO NO NO NO</button> <br><br>
           </div>
         </div>
-        <div class="text-center">
+
+        <div id="containerForHyderAnimations" class="col-sm-6">
+        </div>
+
+        <div class="text-center col-sm-12">
           <h3>Current State:</h3>
           <img id="randomImg" style="width: 20%; height: 20%" src="Images/BackgroundImage-75%.png"></img>
         </div>

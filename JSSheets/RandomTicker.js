@@ -19,7 +19,6 @@ var tickerQuestions = ["You are a business man from the UN with a reputation of 
 
 var animationDurationTime = tickerQuestions.length*(15.555555556);
 
-var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 var spaceBar = "&nbsp"
 var spaceBars;
 
