@@ -29,7 +29,7 @@ var shuffledArray4 = [];
 var link = "results";
 var changed = false;
 
-var pollutionsPoints = [[10000, 0, 100000, 0, 25, 10], [-1000, 0, 1000, 0, 0, 10], [-1000, 0, 1000, 0, 0, 10], [-1000, 0, 500, 0, 1, 10], [-1000, 0, 1000, 0, 5, 10], [-5000, 0, 5000, 0, 10, 10], [75000, 0, 500, 0, 0, 10], [-5000, 0, 5000, 0, 10, 10], [-500, 0, 1000, 0, 0, 10], [-500, 0, 500, 0, 1, 10], [-5000, 0, 500, 0, 0, 10], [-500, 0, 1000, 0, 5, 10], [-10000, 0, 10000, 0, -20, 10], [-500, 0, 1000, 0, 5, 10], [-1000, 0, 500, 0, 1, 10], [-1000, 0, 1000, 0, 0, 10]]
+var pollutionsPoints = [[10000, 0, 100000, 0, 25, 10], [-1000, 0, 1000, 0, 0, 10], [-1000, 0, 1000, 0, 1, 10], [-1000, 0, 500, 0, 1, 10], [-1000, 0, 1000, 0, 5, 10], [-5000, 0, 5000, 0, 10, 10], [75000, 0, 500, 0, 0, 10], [-5000, 0, 5000, 0, 10, 10], [-500, 0, 1000, 0, 0, 10], [-500, 0, 500, 0, 1, 10], [-5000, 0, 500, 0, 0, 10], [-500, 0, 1000, 0, 5, 10], [-10000, 0, 10000, 0, -20, 10], [-500, 0, 1000, 0, 5, 10], [-1000, 0, 500, 0, 1, 10], [-1000, 0, 1000, 0, 0, 10]]
 //0 is money, 1 is pollution, 2 is PA, 4 is increase level, and 5 is time
 var pollutionsPoints1 = [[2000, 0, 2000, 0, 15, 10], [-500, 0, 500, 0, 0, 10], [-500, 0, 500, 0, 0, 10], [-500, 0, 500, 0, 0, 10], [0, 0, 0, 1, 0, 0], [0, 0, 0, 1, 0, 0], [+500, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0], [0, 0, 5000, 0, 0, 10], [0, 0, 0, 1, 0, 0], [-1000, 0, 0, 0, -1, 10], [0, 0, 0, 1, 0, 0], [0, 0, 0, 1, 0, 0], [0, 0, 0, 1, 0, 0], [-500, 0, 500, 0, 0, 10], [0, 0, 0, 1, 0, 0]];
 //0 is money, 1 is pollution, 2 is PA, 4 is increase level, and 5 is time
@@ -285,13 +285,13 @@ function generalFoo() {
   }
 
   repeatableQuestions = shuffle(repeatableQuestions);
-  if (choice == 3 && (currentQuestion == "A person walks up to you and asks you if you like cheese or not")) {
+  if (choice == 3 && (currentQuestion == "A strange person walks up to you and asks you if you like cheese or not")) {
     document.getElementById("buttonDiv").innerHTML = "<iframe id='frame2'></iframe>";
-    document.getElementById("frame2").src = "Images/results1-3.mp4";
+    document.getElementById("frame2").src = "results/results1-3.mp4";
     document.getElementById("proposal").innerHTML = "Hahaha you're dead. I mean, what else did you expect...";
 
     //end the game after a end game cutscene
-    setTimeout(function(){lose();}, 5000);
+    setTimeout(function(){lose();}, 10000);
   } else if ((selectedProbability[0] == 0 && requiredValueQuestions.includes(currentQuestion) == true) || (selectedProbability[0] == 1 && requiredValueQuestions.includes(repeatableQuestions[0]))) {
       if (choice == 1 && (publicAwarenessLevel >= 10000 && (currentQuestion == "Proposal for the universal adoptation of a advanced kind of air filter recently made avaliable" || currentQuestion == "Proposal for international subsidies for the transitioning to renewable energy from fossial fuels" || (selectedProbability[0] == 1 && repeatableQuestions[0] == "Propose the tightening of Carbons emissions restrictions") || currentQuestion == "Host a Presentation"))) {
 
