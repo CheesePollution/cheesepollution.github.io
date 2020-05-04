@@ -15,6 +15,7 @@ var questions3 = ['A strange person walks up to you and asks you if you like che
 var questions4 = ['Country not following passed bill',//15
 "Host a public conference about the effects of what you're doing"];//16
 
+var doesThisQuestionExist = ['Host a Presentation', 'Host a public conference about the effects of environmental change', 'Expose a Scandal/Lie of a company that is not meeting regulations', 'Proposal for the universal adoptation of a advanced kind of air filter recently made avaliable', 'Proposal for the universal banning of Internal Combustion Land Vechicles', 'A Wealthy Billionare is interested in your services and wants a share in sales for a large sum of $$$', 'Proposal for international subsidies for the transitioning to renewable energy from fossial fuels', 'A strange person walks up to you and asks you if you like cheese or not','Propose subsidies to improve the effienicy of renewable sources','Proposal the implementation of a livestock limit per captia for each country','Billionare Shareholder violating Enviromental restrictions','Propose the implementation of a Carbon emissions restriction','Proposal for the banning of the use of fossial fuels','Propose the implementation of a limit to the extraction of crude oil and natural gas', 'Country not following passed bill', "Host a public conference about the effects of what you're doing"];
 
 var questions1Q = ['Host a Presentation', 'Host a public conference about the effects of environmental change', 'Expose a Scandal/Lie of a company that is not meeting regulations', 'Proposal for the universal adoptation of a advanced kind of air filter recently made avaliable'];
 var questions2Q = ['Proposal for the universal banning of Internal Combustion Land Vechicles', 'A Wealthy Billionare is interested in your services and wants a share in sales for a large sum of $$$', 'Proposal for international subsidies for the transitioning to renewable energy from fossial fuels'];
@@ -30,16 +31,16 @@ var questionsResponse = [["Offer Accepted (full presentation) (Requires 5000 PA)
 ["Pass Now (Requires 30,000 PA)","Pass Later","Veto Bill"],
 ["Offer Accepted","Limited amount of shares only","Offer Denied"],
 ["Pass Now (Requires 10,000 PA)","Pass Later","Veto Bill"],
+["Yes", "Maybe", "Blow Up The Earth"],
+["Pass Now","Pass Later","Veto Bill"],
 ["Pass Now","Pass Later","Veto Bill"],
 ["Fully Buy Back","Partially Buy Back","Do Nothing"],
-["Pass Now","Pass Later","Veto Bill"],
-["Yes", "Maybe", "Blow Up The Earth"],
 ["Pass Now (Requires 30,000 PA)","Pass Later","Veto Bill"],
 ["Pass Now (Requires 30,000 PA)","Pass Later","Veto the bill"],
 ["Pass Now","Pass Later","Veto Bill"],
 ["Fully Embargo (Requires 10,000 PA)","Sanction Against Industry (Requires 5000 PA)","Do Nothing"],
 ["Host Conference","Host Online Conference","Cancel The Conference"]];
-var questionRepeatableRepsonse = [["Cut Subsidies and Sanctions","Cut Subsidies","Do Nothing"], ["Increase Subsidies","Do Nothing","Sanction the Country anyways (you jerk)"], ["Tighten the restrictions (Requires 10,000 PA)","Do Nothing","Veto the bill"], ["Fully Embargo (Requires 10,000 PA)","Sanction Against Industry (Requires 5000 PA)","Do Nothing"], ["Lower the Livestock Limit","Slightly Lower the Livestock Limit","Veto the bill"],]
+var questionRepeatableRepsonse = [["Cut Subsidies and Sanctions","Cut Subsidies","Do Nothing"], ["Increase Subsidies","Do Nothing","Sanction the Country anyways (you jerk)"], ["Tighten the restrictions (Requires 10,000 PA)", "Do Nothing", "Veto the bill"], ["Fully Embargo (Requires 10,000 PA)", "Sanction Against Industry (Requires 5000 PA)", "Do Nothing"], ["Embargo (Requires 10,000 PA)", "Sanction Against Country (Requires 10,000 PA)", "Turn a Blind Eye"], ["Tighten the restrictions (Requires 10,000 PA)","Do Nothing","Veto the bill"], ["Fully Embargo (Requires 10,000 PA)","Sanction Against Industry (Requires 5000 PA)","Do Nothing"], ["Lower the Livestock Limit","Slightly Lower the Livestock Limit","Veto the bill"],]
 var repeatableQuestionsNumber;
 var questionSection = 1;
 var currentQuestion = 0;
@@ -206,7 +207,7 @@ function vis() { //initialization
     questionNumber = 8+questions3Q.indexOf(currentQuestion);
   } else if (questionSection == 4) {
     shuffledArray4.splice(0, 1);
-    questionNumber = 12+questions4Q.indexOf(currentQuestion);
+    questionNumber = 14+questions4Q.indexOf(currentQuestion);
   }
 
   if (repeatableQuestions.length > 1){
@@ -236,17 +237,19 @@ function changeValues() {
   } else if (selectedProbability[0] == 0 && choice == 3) {
     valueLol = pollutionsPoints2[questionNumber];
   } else if (selectedProbability[0] == 1 && choice == 1) {
-    valueLol = rPollutionsPoints[repeatableQuestionsNumber-1];
+    valueLol = rPollutionsPoints[repeatableQuestionsNumber];
   } else if (selectedProbability[0] == 1 && choice == 2) {
-    valueLol = rPollutionsPoints1[repeatableQuestionsNumber-1];
+    valueLol = rPollutionsPoints1[repeatableQuestionsNumber];
   } else if (selectedProbability[0] == 1 && choice == 3) {
-    valueLol = rPollutionsPoints2[repeatableQuestionsNumber-1];
+    valueLol = rPollutionsPoints2[repeatableQuestionsNumber];
   }
 
   //check if have to repeat question later on.
   if (valueLol[3] == 1) {
     //do repeat later and ignore all effects because it's either useless or not supposed to do anything.
     countRepeat = true;
+    airPollutionLevel = airPollutionLevel + (pollutionIncreaseLevel - pollutionDecreaseLevel);
+    updateValues();
     if (selectedProbability[0] == 0) {
       questionStorage = currentQuestion;
     } else if (selectedProbability[0] == 1) {
@@ -285,7 +288,7 @@ function changeValues() {
       status = "Very Good";
       document.getElementById("randomImg").src = "Images/BackgroundImage-normal.png";
     } else {
-      status = "Something Has Gone Very Very Wrong";
+      status = "Nice";
     }
 
     updateValues();
@@ -439,31 +442,16 @@ function generalFoo() {
 
 function newQuestion() {
 
-  if (publicAwarenessLevel >= 99000 && pollutionDecreaseLevel >= 90 && money >= 9000 && airPollutionLevel <= 150){
+  if (publicAwarenessLevel >= 99000 && pollutionDecreaseLevel >= 90 && money >= 9000 && airPollutionLevel <= 150 && questionIndex == 56){
     win();
   } else if (questionIndex == 16 || status == "Dead" || money <= -10000){
     lose();
   }
-  if (selectedProbability[0] == 1) { //if a repeatable question
-    //1. Set link to open
-    if (repeatableQuestions[0] == 'Country abusing subsidies for their own gain') {
-      repeatableQuestionsNumber = 1;
-    } else if (repeatableQuestions[0] == "Country can't afford to transition to the power grid") {
-      repeatableQuestionsNumber = 2;
-    } else if (repeatableQuestions[0] == 'Propose the tightening of Carbons emissions restrictions') {
-      repeatableQuestionsNumber = 3;
-    } else if (repeatableQuestions[0] == 'Country violating the Carbon Emission restrictions') {
-      repeatableQuestionsNumber = 4;
-    } else if (repeatableQuestions[0] == 'Country violating the livestock bill') {
-      repeatableQuestionsNumber = 5;
-    } else if (repeatableQuestions[0] == 'Proposal for the tightening of the livestock bill') {
-      repeatableQuestionsNumber = 6;
-    }
-
-    link = "results/resultsR" + "-" + repeatableQuestionsNumber + "-" + choice + ".mp4";
+  if (selectedProbability[0] == 1){
+    link = "results/resultsR" + repeatableQuestionsNumber + "-" + choice + ".mp4";
 
     //2. Change values
-  } else if(selectedProbability[0] == 0) { //if not a repeatable question
+  } else if (selectedProbability[0] == 0) { //if not a repeatable question
     //1. Set link to open
     dunnoQN = questionNumber+1;
     link = "results/results" + dunnoQN + "-" + choice + ".mp4";
@@ -473,6 +461,8 @@ function newQuestion() {
   document.getElementById("proposal").innerHTML = "Here's the Result";
   changed = true;
   console.log(link);
+  console.log(questionSection);
+  console.log(questionIndex);
 
   setTimeout(function() {
     document.getElementById("buttonDiv").innerHTML = "<button id='opt10' onclick='foo1()' class='btn borderlol' style='width: 400px; background-color: lightblue;'>Do it!</button> <br><br> <button id='opt20' onclick='foo2()' class='btn borderlol' style='width: 400px; background-color: lightblue;'>Semi-fund it</button> <br><br> <button id='opt30' onclick='foo3()' class='btn borderlol' style='width: 400px; background-color: lightblue;'>NO NO NO NO NO NO NO</button> <br><br>"
@@ -516,51 +506,65 @@ function newQuestion() {
       document.getElementById("proposal").innerHTML = repeatableQuestions[0];
     }
 
-    if (questionIndex == 5 || questionIndex == 8 || questionIndex == 15){
+    if (questionIndex == 5 || questionIndex == 8 || questionIndex == 16){
       init();
     }
 
     if (canDo == true) {
-      if (questionSection == 1) {
-        //console.log("temp");
-
-        shuffledArray1.splice(0, 1);
-        questionNumber = questions1Q.indexOf(currentQuestion);
-
-        //console.log("temp");
-        //console.log("temp");
-      } else if (questionSection == 2) {
-        //console.log("temp");
-
-        shuffledArray2.splice(0, 1);
-        var temp = questions2Q.indexOf(currentQuestion)
-        questionNumber = 4 + temp;
-
-        //console.log("temp");
-        //console.log("temp");
-      } else if (questionSection == 3) {
-        //console.log("temp");
-
-        shuffledArray3.splice(0, 1);
-        var temp = questions3Q.indexOf(currentQuestion)
-        questionNumber = 7 + temp;
-
-        //console.log("temp");
-        //console.log("temp");
-      } else if (questionSection == 4) {
-        //console.log("temp");
-
-        shuffledArray4.splice(0, 1);
-        var temp = questions4Q.indexOf(currentQuestion)
-        questionNumber = 12 + temp;
-
-        //console.log("temp");
+      if (selectedProbability[0] == 0){
+        if (questionSection == 1) {
           //console.log("temp");
+
+          shuffledArray1.splice(0, 1);
+          questionNumber = questions1Q.indexOf(currentQuestion);
+
+          //console.log("temp");
+          //console.log("temp");
+        } else if (questionSection == 2) {
+          //console.log("temp");
+
+          shuffledArray2.splice(0, 1);
+          var temp = questions2Q.indexOf(currentQuestion)
+          questionNumber = 4 + temp;
+
+          //console.log("temp");
+          //console.log("temp");
+        } else if (questionSection == 3) {
+          //console.log("temp");
+
+          shuffledArray3.splice(0, 1);
+          var temp = questions3Q.indexOf(currentQuestion)
+          questionNumber = 7 + temp;
+
+          //console.log("temp");
+          //console.log("temp");
+        } else if (questionSection == 4) {
+          //console.log("temp");
+
+          shuffledArray4.splice(0, 1);
+          var temp = questions4Q.indexOf(currentQuestion)
+          questionNumber = 12 + temp;
+
+          //console.log("temp");
+            //console.log("temp");
+        }
+      } else if (selectedProbability[0] == 1) {
+        if (repeatableQuestions[0] == 'Country abusing subsidies for their own gain') {
+          repeatableQuestionsNumber = 0;
+        } else if (repeatableQuestions[0] == "Country can't afford to transition to the power grid") {
+          repeatableQuestionsNumber = 1;
+        } else if (repeatableQuestions[0] == 'Propose the tightening of Carbons emissions restrictions') {
+          repeatableQuestionsNumber = 2;
+        } else if (repeatableQuestions[0] == 'Country violating the Carbon Emission restrictions') {
+          repeatableQuestionsNumber = 3;
+        } else if (repeatableQuestions[0] == 'Country violating the livestock bill') {
+          repeatableQuestionsNumber = 4;
+        } else if (repeatableQuestions[0] == 'Management of the livestock regulation') {
+          repeatableQuestionsNumber = 5;
+        }
       }
+      changeBtn();
     }
-
-
-    changeBtn();
   }, 5000);
 }
 
@@ -585,9 +589,15 @@ function changeBtn() {
       document.getElementById("opt30").innerHTML = questionsResponse[questionNumber][2];
     }
   } else {
-    document.getElementById("opt1").innerHTML = questionRepeatableRepsonse[repeatableQuestionsNumber-1][1];
-    document.getElementById("opt2").innerHTML = questionRepeatableRepsonse[repeatableQuestionsNumber-1][2];
-    document.getElementById("opt3").innerHTML = questionRepeatableRepsonse[repeatableQuestionsNumber-1][3];
+    if (changed == false) {
+      document.getElementById("opt1").innerHTML = questionRepeatableRepsonse[repeatableQuestionsNumber][0];
+      document.getElementById("opt2").innerHTML = questionRepeatableRepsonse[repeatableQuestionsNumber][1];
+      document.getElementById("opt3").innerHTML = questionRepeatableRepsonse[repeatableQuestionsNumber][2];
+    } else {
+      document.getElementById("opt10").innerHTML = questionRepeatableRepsonse[repeatableQuestionsNumber][0];
+      document.getElementById("opt20").innerHTML = questionRepeatableRepsonse[repeatableQuestionsNumber][1];
+      document.getElementById("opt30").innerHTML = questionRepeatableRepsonse[repeatableQuestionsNumber][2];
+    }
   }
 }
 
@@ -597,14 +607,13 @@ function cheatToWin() {
     airPollutionLevel = 0;
     pollutionIncreaseLevel = 0;
     pollutionDecreaseLevel = pollutionDecreaseLevel+1000;
-    warenessLevel = warenessLevel+100000;
+    publicAwarenessLevel = publicAwarenessLevel+100000;
     iPerc = (pollutionIncreaseLevel);
     dPerc = (pollutionDecreaseLevel);
-    pubPerc = (warenessLevel/1000);
+    pubPerc = (publicAwarenessLevel/1000);
     monPerc = (money/100);
     pollPerc = (airPollutionLevel/10);
     updateValues();
-    win();
   } else {
     alert("nice try noobs");
   }
