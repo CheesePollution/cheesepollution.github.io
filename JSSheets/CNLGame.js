@@ -1,15 +1,44 @@
-var questions1 = ['A strange person walks up to you and asks you if you like cheese or not', 'Host a Presentation', 'Host a public conference about the effects of environmental change', 'Expose a Scandal/Lie of a company that is not meeting regulations', 'Proposal for the universal adoptation of a advanced kind of air filter recently made avaliable'];
-var questions2 = ['Proposal for the universal banning of Internal Combustion Land Vechicles', 'A Wealthy Billionare is interested in your services and wants a share in sales for a large sum of $$$', 'Proposal for international subsidies for the transitioning to renewable energy from fossial fuels'];
-var questions3 = ['Proposal the implementation of a livestock limit per captia for each country', 'Billionare Shareholder violating Enviromental restrictions', 'Propose the implementation of a Carbon emissions restriction', 'Proposal for the banning of the use of fossial fuels', 'Propose the implementation of a limit to the extraction of crude oil and natural gas'];
-var questions4 = ['Country not following passed bill', "Host a public conference about the effects of what you're doing"];
-var questions1Q = ['A strange person walks up to you and asks you if you like cheese or not', 'Host a Presentation', 'Host a public conference about the effects of environmental change', 'Expose a Scandal/Lie of a company that is not meeting regulations', 'Proposal for the universal adoptation of a advanced kind of air filter recently made avaliable'];
+var questions1 = ['Host a Presentation', //1
+'Host a public conference about the effects of environmental change',//2
+'Expose a Scandal/Lie of a company that is not meeting regulations',//3
+'Proposal for the universal adoptation of a advanced kind of air filter recently made avaliable'];//4
+var questions2 = ['Proposal for the universal banning of Internal Combustion Land Vechicles',//5
+'A Wealthy Billionare is interested in your services and wants a share in sales for a large sum of $$$',//6
+'Proposal for international subsidies for the transitioning to renewable energy from fossial fuels'];//7
+var questions3 = ['A strange person walks up to you and asks you if you like cheese or not',//8
+'Propose subsidies to improve the effienicy of renewable sources',//9
+'Proposal the implementation of a livestock limit per captia for each country',//10
+'Billionare Shareholder violating Enviromental restrictions',//11
+'Propose the implementation of a Carbon emissions restriction',//12
+'Proposal for the banning of the use of fossial fuels',//13
+'Propose the implementation of a limit to the extraction of crude oil and natural gas'];//14
+var questions4 = ['Country not following passed bill',//15
+"Host a public conference about the effects of what you're doing"];//16
+
+
+var questions1Q = ['Host a Presentation', 'Host a public conference about the effects of environmental change', 'Expose a Scandal/Lie of a company that is not meeting regulations', 'Proposal for the universal adoptation of a advanced kind of air filter recently made avaliable'];
 var questions2Q = ['Proposal for the universal banning of Internal Combustion Land Vechicles', 'A Wealthy Billionare is interested in your services and wants a share in sales for a large sum of $$$', 'Proposal for international subsidies for the transitioning to renewable energy from fossial fuels'];
-var questions3Q = ['Proposal the implentation of a livestock limit per captia for each country', 'Billionare Shareholder violating Enviromental restrictions', 'Propose the implentation of a Carbon emissions restriction', 'Proposal for the banning of the use of fossial fuels', 'Propose the implementation of a limit to the extraction of crude oil and natural gas'];
+var questions3Q = ['A strange person walks up to you and asks you if you like cheese or not','Propose subsidies to improve the effienicy of renewable sources','Proposal the implementation of a livestock limit per captia for each country','Billionare Shareholder violating Enviromental restrictions','Propose the implementation of a Carbon emissions restriction','Proposal for the banning of the use of fossial fuels','Propose the implementation of a limit to the extraction of crude oil and natural gas'];
 var questions4Q = ['Country not following passed bill', "Host a public conference about the effects of what you're doing"];
 var repeatableQuestions = ['Propose the tightening of Carbons emissions restrictions'];
 var requiredRepeatableQuestions = ['Country abusing subsidies for their own gain', "Country can't afford to transition to the power grid", 'Country violating the Carbon Emission restrictions', 'Country violating the livestock bill', 'Proposal for the tightening of the livestock bill', 'Management of the livestock regulation'];
 var requiredValueQuestions = ["Host a Presentation", "Host a public conference about the effects of environmental change", "Proposal for the universal adoptation of a advanced kind of air filter recently made avaliable", "Proposal for the universal banning of Internal Combustion Land Vechicles", "Proposal for international subsidies for the transitioning to renewable energy from fossial fuels", "Propose the implementation of a Carbon emissions restriction", "Proposal for the banning of the use of fossial fuels", "Country not following passed bill (requires at least one bill passed)", "Propose the tightening of Carbons emissions restrictions", "Country violating the Carbon Emission restrictions", "Country violating the livestock regulation", "Country violating the fossial extraction regulation"];
-var questionsResponse = [["Yes", "Maybe", "Blow Up The Earth"], ["Offer Accepted (full presentation) (Requires 5000 PA)","Only a small presentation","Offer Denied"], ["Offer Accepted (Full Conference) (Requires 10,000 PA)","Only a small one (Requires 5000 PA)","Offer Denied"], ["Fully Expose","Partly expose (if not enough funds)","Ignore"], ["Pass Now (Requires 10,000 PA)","Pass Later","Veto Bill"], ["Pass Now (Requires 30,000 PA)","Pass Later","Veto Bill"], ["Offer Accepted","Limited amount of shares only","Offer Denied"], ["Pass Now (Requires 10,000 PA)","Pass Later","Veto Bill"], ["Pass Now","Pass Later","Veto Bill"], ["Pass Now","Pass Later","Veto Bill"], ["Fully Buy Back","","Do Nothing"], ["Pass Now (Requires 30,000 PA)","Pass Later","Veto Bill"], ["Pass Now (Requires 30,000 PA)","Pass Later","Veto the bill"], ["Pass Now","Pass Later","Veto Bill"], ["Fully Embargo (Requires 10,000 PA)","Sanction Against Industry (Requires 5000 PA)","Do Nothing"], ["Host Conference","Host Online Conference","Cancel The Conference"]];
+var questionsResponse = [["Offer Accepted (full presentation) (Requires 5000 PA)","Only a small presentation","Offer Denied"],
+["Offer Accepted (Full Conference) (Requires 10,000 PA)","Only a small one (Requires 5000 PA)","Offer Denied"],
+["Fully Expose","Partly expose (if not enough funds)","Ignore"],
+["Pass Now (Requires 10,000 PA)","Pass Later","Veto Bill"],
+["Pass Now (Requires 30,000 PA)","Pass Later","Veto Bill"],
+["Offer Accepted","Limited amount of shares only","Offer Denied"],
+["Pass Now (Requires 10,000 PA)","Pass Later","Veto Bill"],
+["Pass Now","Pass Later","Veto Bill"],
+["Fully Buy Back","Partially Buy Back","Do Nothing"],
+["Pass Now","Pass Later","Veto Bill"],
+["Yes", "Maybe", "Blow Up The Earth"],
+["Pass Now (Requires 30,000 PA)","Pass Later","Veto Bill"],
+["Pass Now (Requires 30,000 PA)","Pass Later","Veto the bill"],
+["Pass Now","Pass Later","Veto Bill"],
+["Fully Embargo (Requires 10,000 PA)","Sanction Against Industry (Requires 5000 PA)","Do Nothing"],
+["Host Conference","Host Online Conference","Cancel The Conference"]];
 var questionRepeatableRepsonse = [["Cut Subsidies and Sanctions","Cut Subsidies","Do Nothing"], ["Increase Subsidies","Do Nothing","Sanction the Country anyways (you jerk)"], ["Tighten the restrictions (Requires 10,000 PA)","Do Nothing","Veto the bill"], ["Fully Embargo (Requires 10,000 PA)","Sanction Against Industry (Requires 5000 PA)","Do Nothing"], ["Lower the Livestock Limit","Slightly Lower the Livestock Limit","Veto the bill"],]
 var repeatableQuestionsNumber;
 var questionSection = 1;
@@ -18,6 +47,8 @@ var questionNumber;
 var dunnoQN;
 var questionStorage;
 var canDo = true;
+
+var trueOrFalse2 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 1];
 
 var trueOrFalse = [0, 0, 0, 0, 0, 0, 0, 1, 1, 1];
 var selectedProbability;
@@ -29,11 +60,11 @@ var shuffledArray4 = [];
 var link = "results";
 var changed = false;
 
-var pollutionsPoints = [[10000, 0, 100000, 0, 25, 10], [-1000, 0, 1000, 0, 0, 10], [-1000, 0, 1000, 0, 1, 10], [-1000, 0, 500, 0, 1, 10], [-1000, 0, 1000, 0, 5, 10], [-5000, 0, 5000, 0, 10, 10], [75000, 0, 500, 0, 0, 10], [-5000, 0, 5000, 0, 10, 10], [-500, 0, 1000, 0, 0, 10], [-500, 0, 500, 0, 1, 10], [-5000, 0, 500, 0, 0, 10], [-500, 0, 1000, 0, 5, 10], [-10000, 0, 10000, 0, -20, 10], [-500, 0, 1000, 0, 5, 10], [-1000, 0, 500, 0, 1, 10], [-1000, 0, 1000, 0, 0, 10]]
+var pollutionsPoints = [[-1000, 0, 1000, 0, 0, 10], [-1000, 0, 1000, 0, 1, 10], [-1000, 0, 500, 0, 1, 10], [-1000, 0, 1000, 0, 5, 10], [-5000, 0, 5000, 0, 10, 10], [75000, 0, 500, 0, 0, 10], [-5000, 0, 5000, 0, 10, 10], [10000, 0, 100000, 0, 25, 10], [-500, 0, 1000, 0, 0, 10],  [-500, 0, 500, 0, 1, 10], [-5000, 0, 500, 0, 0, 10], [-500, 0, 1000, 0, 5, 10], [-10000, 0, 10000, 0, -20, 10], [-500, 0, 1000, 0, 5, 10], [-1000, 0, 500, 0, 1, 10], [-1000, 0, 1000, 0, 0, 10]]
 //0 is money, 1 is pollution, 2 is PA, 4 is increase level, and 5 is time
-var pollutionsPoints1 = [[2000, 0, 2000, 0, 15, 10], [-500, 0, 500, 0, 0, 10], [-500, 0, 500, 0, 0, 10], [-500, 0, 500, 0, 0, 10], [0, 0, 0, 1, 0, 0], [0, 0, 0, 1, 0, 0], [+500, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0], [0, 0, 5000, 0, 0, 10], [0, 0, 0, 1, 0, 0], [-1000, 0, 0, 0, -1, 10], [0, 0, 0, 1, 0, 0], [0, 0, 0, 1, 0, 0], [0, 0, 0, 1, 0, 0], [-500, 0, 500, 0, 0, 10], [0, 0, 0, 1, 0, 0]];
+var pollutionsPoints1 = [[-500, 0, 500, 0, 0, 10], [-500, 0, 500, 0, 0, 10], [-500, 0, 500, 0, 0, 10], [0, 0, 0, 1, 0, 0], [0, 0, 0, 1, 0, 0], [+500, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0], [0, 0, 5000, 0, 0, 10], [0, 0, 0, 1, 0, 0], [2000, 0, 2000, 0, 15, 10], [-1000, 0, 0, 0, -1, 10], [0, 0, 0, 1, 0, 0], [0, 0, 0, 1, 0, 0], [0, 0, 0, 1, 0, 0], [-500, 0, 500, 0, 0, 10], [0, 0, 0, 1, 0, 0]];
 //0 is money, 1 is pollution, 2 is PA, 4 is increase level, and 5 is time
-var pollutionsPoints2 = [[0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, -1, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, -5, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, -1, 0], [0, 0, 0, 0, 0, 0]];
+var pollutionsPoints2 = [[0, 0, 0, 0, 0, 0], [0, 0, 0, 0, -1, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, -5, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, -1, 0], [0, 0, 0, 0, 0, 0]];
 //0 is money, 1 is pollution, 2 is PA, 4 is increase level, and 5 is time
 
 var rPollutionsPoints = [[0, 0, 5000, 0, 1, 10], [-500, 0, 500, 0, 0, 10], [-500, 0, 500, 0, 1, 10], [-1000, 0, 500, 0, 1, 10], [-1000, 0, 1000, 0, 5, 10], [-10000, 0, 10000, 0, 20, 10]];
@@ -90,15 +121,15 @@ document.getElementById('opt3').onclick = foo3;
 
 function init() { //check if change section or no and stuff //shuffles and sets currentQuestion on initialization
 
-  if (questionIndex == 6) {
+  if (questionIndex == 5) {
     currentQuestion = shuffledArray2[0];
     document.getElementById("proposal").innerHTML = currentQuestion;
     questionSection = 2;
-  } else if (questionIndex == 9) {
+  } else if (questionIndex == 8) {
     currentQuestion = shuffledArray3[0];
     document.getElementById("proposal").innerHTML = currentQuestion;
     questionSection = 3;
-  } else if (questionIndex == 13) {
+  } else if (questionIndex == 15) {
     currentQuestion = shuffledArray4[0];
     document.getElementById("proposal").innerHTML = currentQuestion;
     questionSection = 4;
@@ -151,7 +182,7 @@ function updateValues() {
     status = "Very Good";
     document.getElementById("randomImg").src = "Images/BackgroundImage-normal.png";
   } else {
-    status = "Something Has Gone Very Very Wrong";
+    status = "Good Job";
   }
 }
 
@@ -263,6 +294,7 @@ function changeValues() {
 
 //foos change question
 function generalFoo() {
+
   if (countRepeat == true) {
     if (repeatCounter != 7){
       repeatCounter++;
@@ -285,6 +317,8 @@ function generalFoo() {
   }
 
   repeatableQuestions = shuffle(repeatableQuestions);
+
+
   if (choice == 3 && (currentQuestion == "A strange person walks up to you and asks you if you like cheese or not")) {
     document.getElementById("buttonDiv").innerHTML = "<iframe id='frame2'></iframe>";
     document.getElementById("frame2").src = "results/results1-3.mp4";
@@ -355,12 +389,7 @@ function generalFoo() {
         canDo = false;
 
 
-
-
-
       } else if (choice == 3 || (choice == 1 && (currentQuestion == "Host a public conference about the effects of environmental change" || currentQuestion == "Country not following passed bill (requires at least one bill passed)" || (selectedProbability[0] == 1 && repeatableQuestions[0] == "Country violating the Carbon Emission restrictions")) && publicAwarenessLevel >= 10000 )|| (choice == 2 && (currentQuestion == "Host a public conference about the effects of environmental change" || currentQuestion == "Country not following passed bill (requires at least one bill passed)" || (selectedProbability[0] == 1 && repeatableQuestions[0] == "Country violating the Carbon Emission restrictions")) && publicAwarenessLevel >= 5000)) {
-
-
 
 
 
@@ -368,7 +397,6 @@ function generalFoo() {
         canDo = true;
         newQuestion();
       } else if ((choice == 1 && (currentQuestion == 'Host a public conference about the effects of environmental change' || currentQuestion == "Country not following passed bill (requires at least one bill passed)" || (selectedProbability[0] == 1 && repeatableQuestions[0] == "Country violating the Carbon Emission restrictions")) && (publicAwarenessLevel < 10000)) || (choice == 2 && (currentQuestion == "Host a public conference about the effects of environmental change" || currentQuestion == "Country not following passed bill (requires at least one bill passed)" || (selectedProbability[0] == 1 && repeatableQuestions[0] == "Country violating the Carbon Emission restrictions")) && (publicAwarenessLevel < 5000))){
-
 
 
         document.getElementById("proposal").innerHTML = "Nice. You don't have enough Public Awareness to do this. Try a different option. Don't mindlessly spam this button. It's not gonna do anything."
@@ -444,6 +472,7 @@ function newQuestion() {
   document.getElementById("frame").src = link;
   document.getElementById("proposal").innerHTML = "Here's the Result";
   changed = true;
+  console.log(link);
 
   setTimeout(function() {
     document.getElementById("buttonDiv").innerHTML = "<button id='opt10' onclick='foo1()' class='btn borderlol' style='width: 400px; background-color: lightblue;'>Do it!</button> <br><br> <button id='opt20' onclick='foo2()' class='btn borderlol' style='width: 400px; background-color: lightblue;'>Semi-fund it</button> <br><br> <button id='opt30' onclick='foo3()' class='btn borderlol' style='width: 400px; background-color: lightblue;'>NO NO NO NO NO NO NO</button> <br><br>"
@@ -487,7 +516,7 @@ function newQuestion() {
       document.getElementById("proposal").innerHTML = repeatableQuestions[0];
     }
 
-    if (questionIndex == 6 || questionIndex == 9 || questionIndex == 13){
+    if (questionIndex == 5 || questionIndex == 8 || questionIndex == 15){
       init();
     }
 
@@ -505,7 +534,7 @@ function newQuestion() {
 
         shuffledArray2.splice(0, 1);
         var temp = questions2Q.indexOf(currentQuestion)
-        questionNumber = 5 + temp;
+        questionNumber = 4 + temp;
 
         //console.log("temp");
         //console.log("temp");
@@ -514,7 +543,7 @@ function newQuestion() {
 
         shuffledArray3.splice(0, 1);
         var temp = questions3Q.indexOf(currentQuestion)
-        questionNumber = 8 + temp;
+        questionNumber = 7 + temp;
 
         //console.log("temp");
         //console.log("temp");
@@ -523,7 +552,7 @@ function newQuestion() {
 
         shuffledArray4.splice(0, 1);
         var temp = questions4Q.indexOf(currentQuestion)
-        questionNumber = 11 + temp;
+        questionNumber = 12 + temp;
 
         //console.log("temp");
           //console.log("temp");
