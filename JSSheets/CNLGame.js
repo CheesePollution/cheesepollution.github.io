@@ -569,11 +569,11 @@ function newQuestion() {
 }
 
 function win() {
-  document.getElementById("gameBar").innerHTML = "<h1>You Win</h1><br><h3>Congrats. <br> You made it very hard for someone to repollute the world. I mean, who would be dumb enough to do that. But, congrats. You passed this game as some random bussiness dude ending air poIIution by spamming buttons. Now go on with your day and do something productive for the environment. By the way, please fill out this google forms for our data collection: <a style='cursor:pointer' src='https://forms.gle/dZW4DPijHNSRrkgd8'>our google forms thing</a>.</h3> <img src='Images/iamnolongerasking.jpg'></img><br>"
+  document.getElementById("gameBar").innerHTML = "<h1>You Win</h1><br><h3>Congrats. <br> You made it very hard for someone to repollute the world. I mean, who would be dumb enough to do that. But, congrats. You passed this game as some random bussiness dude ending air poIIution by spamming buttons. Now go on with your day and do something productive for the environment. By the way, please fill out this google forms for our data collection.</h3> <img src='Images/iamnolongerasking.jpg'></img><br><iframe src='https://docs.google.com/forms/d/e/1FAIpQLSe1S6F8DCw2M9VKujYeNq3CvNfqtX8QBhCDZspf6HNwxCdTww/viewform?embedded=true' width='640' height='1877' frameborder='0' marginheight='0' marginwidth='0'>Loading…</iframe>"
 }
 
 function lose() {
-  document.getElementById("gameBar").innerHTML = "<h1>Dead at round <span id='oof'></span></h1><br><h3>You killed the World and or lost your chance to redeem yourself. I mean, you could always try again, but before that, please fill out our data collection form: <a style='cursor:pointer' src='https://forms.gle/dZW4DPijHNSRrkgd8'>our google forms thing</a>. Of course, don't repeat your actions in real life. Please.</h3> <img src='Images/iamnolongerasking.jpg'></img><br>"
+  document.getElementById("gameBar").innerHTML = "<h1>Dead at round <span id='oof'></span></h1><br><h3>You killed the World and or lost your chance to redeem yourself. I mean, you could always try again, but before that, please fill out our data collection form. Of course, don't repeat your actions in real life. Please.</h3> <img src='Images/iamnolongerasking.jpg'></img><br> <iframe src='https://docs.google.com/forms/d/e/1FAIpQLSe1S6F8DCw2M9VKujYeNq3CvNfqtX8QBhCDZspf6HNwxCdTww/viewform?embedded=true' width='640' height='1877' frameborder='0' marginheight='0' marginwidth='0'>Loading…</iframe>"
   document.getElementById("oof").innerHTML = questionIndex;
 }
 
@@ -698,18 +698,3 @@ function turnOnAnimation() {
   }
 
 }
-
-/*//animate, but it's weird so i dont use it.
-function myMove(item, endPosition, startPosition) {
-  var elem = document.getElementById(item);
-  var pos = startPosition;
-  var id = setInterval(frame, 5);
-  function frame() {
-    if (pos == endPosition) {
-      clearInterval(id);
-    } else {
-      pos--;
-      elem.style.top = pos + "px";
-    }
-  }
-}*/
