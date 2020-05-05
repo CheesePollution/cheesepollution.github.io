@@ -27,6 +27,7 @@ function randomizeTicker() {
   for (var i = 0; i < tickerQuestions.length; i++) {
     var elm = document.createElement("div");
     elm.classList.add("ticker-item");
+    elm.classList.add("disable-select");
     spaceBars = spaceBar.repeat((width/4)*(3/4));
     elm.innerHTML = tickerQuestions[i] + spaceBars;
     document.getElementById("inbetween").appendChild(elm);
@@ -34,4 +35,12 @@ function randomizeTicker() {
 
   var cls = document.getElementsByClassName("ticker-move");
   cls.inbetween.style.animationDuration = animationDurationTime + "s";
+}
+
+function hover(element) {
+  element.setAttribute('src', 'Images/play_onclicked.png');
+}
+
+function unhover(element) {
+  element.setAttribute('src', 'Images/play_clicked.png');
 }
