@@ -458,6 +458,8 @@ function newQuestion() {
   }
   document.getElementById("buttonDiv").innerHTML = "<iframe id='frame'></iframe>";
   document.getElementById("frame").src = link;
+  document.getElementById("frame").style.height = height*0.4 + "px";
+  document.getElementById("frame").style.width = width*0.4 + "px";
   document.getElementById("proposal").innerHTML = "Here's the Result";
   changed = true;
   console.log(link);
