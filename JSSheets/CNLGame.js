@@ -24,23 +24,13 @@ var questions4Q = ['Country not following passed bill', "Host a public conferenc
 var repeatableQuestions = ['Propose the tightening of Carbons emissions restrictions'];
 var requiredRepeatableQuestions = ['Country abusing subsidies for their own gain', "Country can't afford to transition to the power grid", 'Country violating the Carbon Emission restrictions', 'Country violating the livestock bill', 'Proposal for the tightening of the livestock bill', 'Management of the livestock regulation'];
 var requiredValueQuestions = ["Host a Presentation", "Host a public conference about the effects of environmental change", "Proposal for the universal adoptation of a advanced kind of air filter recently made avaliable", "Proposal for the universal banning of Internal Combustion Land Vechicles", "Proposal for international subsidies for the transitioning to renewable energy from fossial fuels", "Propose the implementation of a Carbon emissions restriction", "Proposal for the banning of the use of fossial fuels", "Country not following passed bill (requires at least one bill passed)", "Propose the tightening of Carbons emissions restrictions", "Country violating the Carbon Emission restrictions", "Country violating the livestock regulation", "Country violating the fossial extraction regulation"];
-var questionsResponse = [["Offer Accepted (full presentation) (Requires 5000 PA)","Only a small presentation","Offer Denied"],
-["Offer Accepted (Full Conference) (Requires 10,000 PA)","Only a small one (Requires 5000 PA)","Offer Denied"],
-["Fully Expose","Partly expose (if not enough funds)","Ignore"],
-["Pass Now (Requires 10,000 PA)","Pass Later","Veto Bill"],
-["Pass Now (Requires 30,000 PA)","Pass Later","Veto Bill"],
-["Offer Accepted","Limited amount of shares only","Offer Denied"],
-["Pass Now (Requires 10,000 PA)","Pass Later","Veto Bill"],
-["Yes", "Maybe", "Blow Up The Earth"],
-["Pass Now","Pass Later","Veto Bill"],
-["Pass Now","Pass Later","Veto Bill"],
-["Fully Buy Back","Partially Buy Back","Do Nothing"],
-["Pass Now (Requires 30,000 PA)","Pass Later","Veto Bill"],
-["Pass Now (Requires 30,000 PA)","Pass Later","Veto the bill"],
-["Pass Now","Pass Later","Veto Bill"],
-["Fully Embargo (Requires 10,000 PA)","Sanction Against Industry (Requires 5000 PA)","Do Nothing"],
-["Host Conference","Host Online Conference","Cancel The Conference"]];
-var questionRepeatableRepsonse = [["Cut Subsidies and Sanctions","Cut Subsidies","Do Nothing"], ["Increase Subsidies","Do Nothing","Sanction the Country anyways (you jerk)"], ["Tighten the restrictions (Requires 10,000 PA)", "Do Nothing", "Veto the bill"], ["Fully Embargo (Requires 10,000 PA)", "Sanction Against Industry (Requires 5000 PA)", "Do Nothing"], ["Embargo (Requires 10,000 PA)", "Sanction Against Country (Requires 10,000 PA)", "Turn a Blind Eye"], ["Tighten the restrictions (Requires 10,000 PA)","Do Nothing","Veto the bill"], ["Fully Embargo (Requires 10,000 PA)","Sanction Against Industry (Requires 5000 PA)","Do Nothing"], ["Lower the Livestock Limit","Slightly Lower the Livestock Limit","Veto the bill"],]
+var questionsResponse = [["Offer Accepted (full presentation) (Requires 5000 PA)","Only a small presentation","Offer Denied"],["Offer Accepted (Full Conference) (Requires 10,000 PA)","Only a small one (Requires 5000 PA)","Offer Denied"],["Fully Expose","Partly expose (if not enough funds)","Ignore"],["Pass Now (Requires 10,000 PA)","Pass Later","Veto Bill"],["Pass Now (Requires 30,000 PA)","Pass Later","Veto Bill"],["Offer Accepted","Limited amount of shares only","Offer Denied"],["Pass Now (Requires 10,000 PA)","Pass Later","Veto Bill"],["Yes", "Maybe", "Blow Up The Earth"],["Pass Now","Pass Later","Veto Bill"],["Pass Now","Pass Later","Veto Bill"],["Fully Buy Back","Partially Buy Back","Do Nothing"],["Pass Now (Requires 30,000 PA)","Pass Later","Veto Bill"],["Pass Now (Requires 30,000 PA)","Pass Later","Veto the bill"],["Pass Now","Pass Later","Veto Bill"],["Fully Embargo (Requires 10,000 PA)","Sanction Against Industry (Requires 5000 PA)","Do Nothing"],["Host Conference","Host Online Conference","Cancel The Conference"]];
+var questionRepeatableRepsonse = [["Cut Subsidies and Sanctions","Cut Subsidies","Do Nothing"], ["Increase Subsidies","Do Nothing","Sanction the Country anyways (you jerk)"], ["Tighten the restrictions (Requires 10,000 PA)", "Do Nothing", "Veto the bill"], ["Fully Embargo (Requires 10,000 PA)", "Sanction Against Industry (Requires 5000 PA)", "Do Nothing"], ["Embargo (Requires 10,000 PA)", "Sanction Against Country (Requires 10,000 PA)", "Turn a Blind Eye"], ["Tighten the restrictions (Requires 10,000 PA)","Do Nothing","Veto the bill"], ["Fully Embargo (Requires 10,000 PA)","Sanction Against Industry (Requires 5000 PA)","Do Nothing"], ["Lower the Livestock Limit","Slightly Lower the Livestock Limit","Veto the bill"],];
+
+var questionsResponse2 = [["Offer Accepted","Only a small presentation","Offer Denied"],["Offer Accepted","Only a small one","Offer Denied"],["Fully Expose","Partly expose","Ignore"],["Pass Now","Pass Later","Veto Bill"],["Pass Now","Pass Later","Veto Bill"],["Offer Accepted","Limited amount of shares only","Offer Denied"],["Pass Now","Pass Later","Veto Bill"],["Yes", "Maybe", "Blow Up The Earth"],["Pass Now","Pass Later","Veto Bill"],["Pass Now","Pass Later","Veto Bill"],["Fully Buy Back","Partially Buy Back","Do Nothing"],["Pass Now","Pass Later","Veto Bill"],["Pass Now","Pass Later","Veto the bill"],["Pass Now","Pass Later","Veto Bill"],["Fully Embargo","Sanction Against Industry","Do Nothing"],["Host Conference","Host Online Conference","Cancel The Conference"]];
+var questionRepeatableRepsonse2 = [["Cut Subsidies and Sanctions","Cut Subsidies","Do Nothing"], ["Increase Subsidies","Do Nothing","Sanction the Country anyways"], ["Tighten the restrictions", "Do Nothing", "Veto the bill"], ["Fully Embargo", "Sanction Against Industry", "Do Nothing"], ["Embargo", "Sanction Against Country", "Turn a Blind Eye"], ["Tighten the restrictions","Do Nothing","Veto the bill"], ["Fully Embargo","Sanction Against Industry","Do Nothing"], ["Lower the Limit","Slightly Lower the Limit","Veto the bill"],];
+
+
 var repeatableQuestionsNumber;
 var questionSection = 1;
 var currentQuestion = 0;
@@ -112,6 +102,41 @@ var countRepeat = false;
 var height = (window.innerHeight > 0) ? window.innerHeight : screen.height;
 var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 
+function findBootstrapEnvironment() {
+    let envs = ['xs', 'sm', 'md', 'lg', 'xl'];
+    let el = document.createElement('div');
+    document.body.appendChild(el);
+    let curEnv = envs.shift();
+    for (let env of envs.reverse()) {
+        el.classList.add(`d-${env}-none`);
+        if (window.getComputedStyle(el).display === 'none') {
+            curEnv = env;
+            break;
+        }
+    }
+    document.body.removeChild(el);
+    return curEnv;
+}
+
+function findBrowserEnvironment() {
+
+  var env;
+  if (width < 576) {
+    env = 'xs';
+  } else if (width >= 576 && width < 768) {
+    env = 'sm';
+  } else if (width >= 768 && width < 992) {
+    env = 'md';
+  } else if (width >= 992 && width < 1200) {
+    env = 'lg';
+  } else if (width > 1200) {
+    env = 'xl';
+  }
+  return env;
+}
+
+var buh = findBootstrapEnvironment();
+
 window.addEventListener("load", init, true);
 document.getElementById('visButton').onclick = vis;
 document.getElementById('opt1').onclick = foo1;
@@ -121,7 +146,6 @@ document.getElementById('opt3').onclick = foo3;
 
 
 function init() { //check if change section or no and stuff //shuffles and sets currentQuestion on initialization
-
   if (questionIndex == 5) {
     currentQuestion = shuffledArray2[0];
     document.getElementById("proposal").innerHTML = currentQuestion;
@@ -154,6 +178,16 @@ function init() { //check if change section or no and stuff //shuffles and sets 
   } else {
     status = "Something Has Gone Very Very Wrong";
   }
+}
+
+function playMusic() {
+  var music = document.createElement("AUDIO");
+  music.id = "iframeAudio";
+  music.innerHTML = "<source src='backgroundmusic.mp3' type='audio/mpeg'></source>";
+  music.loop = true;
+  music.autoplay = true;
+  music.load();
+  document.getElementById("insertMusicHere").appendChild(music);
 }
 
 function updateValues() {
@@ -189,6 +223,7 @@ function updateValues() {
 
 function vis() { //initialization
   document.getElementById('buttonDiv').style.visibility = "visible";
+  playMusic();
   document.getElementById('visButton').style.visibility = "hidden";
   shuffledArray1 = shuffle(questions1);
   currentQuestion = shuffledArray1[0];
@@ -589,26 +624,49 @@ function changeBtn() {
     document.getElementById("opt20").style.width = width*0.5 + "px";
     document.getElementById("opt30").style.width = width*0.5 + "px";
   }
-  if (selectedProbability[0] == 0) {
-    if (changed == false) {
-      document.getElementById("opt1").innerHTML = questionsResponse[questionNumber][0];
-      document.getElementById("opt2").innerHTML = questionsResponse[questionNumber][1];
-      document.getElementById("opt3").innerHTML = questionsResponse[questionNumber][2];
+  if (buh == "md" || buh == "sm" || buh == "xs"){
+    if (selectedProbability[0] == 0) {
+      if (changed == false) {
+        document.getElementById("opt1").innerHTML = questionsResponse[questionNumber][0];
+        document.getElementById("opt2").innerHTML = questionsResponse[questionNumber][1];
+        document.getElementById("opt3").innerHTML = questionsResponse[questionNumber][2];
+      } else {
+        document.getElementById("opt10").innerHTML = questionsResponse[questionNumber][0];
+        document.getElementById("opt20").innerHTML = questionsResponse[questionNumber][1];
+        document.getElementById("opt30").innerHTML = questionsResponse[questionNumber][2];
+      }
     } else {
-      document.getElementById("opt10").innerHTML = questionsResponse[questionNumber][0];
-      document.getElementById("opt20").innerHTML = questionsResponse[questionNumber][1];
-      document.getElementById("opt30").innerHTML = questionsResponse[questionNumber][2];
-
+      if (changed == false) {
+        document.getElementById("opt1").innerHTML = questionRepeatableRepsonse[repeatableQuestionsNumber][0];
+        document.getElementById("opt2").innerHTML = questionRepeatableRepsonse[repeatableQuestionsNumber][1];
+        document.getElementById("opt3").innerHTML = questionRepeatableRepsonse[repeatableQuestionsNumber][2];
+      } else {
+        document.getElementById("opt10").innerHTML = questionRepeatableRepsonse[repeatableQuestionsNumber][0];
+        document.getElementById("opt20").innerHTML = questionRepeatableRepsonse[repeatableQuestionsNumber][1];
+        document.getElementById("opt30").innerHTML = questionRepeatableRepsonse[repeatableQuestionsNumber][2];
+      }
     }
-  } else {
-    if (changed == false) {
-      document.getElementById("opt1").innerHTML = questionRepeatableRepsonse[repeatableQuestionsNumber][0];
-      document.getElementById("opt2").innerHTML = questionRepeatableRepsonse[repeatableQuestionsNumber][1];
-      document.getElementById("opt3").innerHTML = questionRepeatableRepsonse[repeatableQuestionsNumber][2];
+  } else if (buh == "lg" || buh == "xl"){
+    if (selectedProbability[0] == 0) {
+      if (changed == false) {
+        document.getElementById("opt1").innerHTML = questionsResponse2[questionNumber][0];
+        document.getElementById("opt2").innerHTML = questionsResponse2[questionNumber][1];
+        document.getElementById("opt3").innerHTML = questionsResponse2[questionNumber][2];
+      } else {
+        document.getElementById("opt10").innerHTML = questionsResponse2[questionNumber][0];
+        document.getElementById("opt20").innerHTML = questionsResponse2[questionNumber][1];
+        document.getElementById("opt30").innerHTML = questionsResponse2[questionNumber][2];
+      }
     } else {
-      document.getElementById("opt10").innerHTML = questionRepeatableRepsonse[repeatableQuestionsNumber][0];
-      document.getElementById("opt20").innerHTML = questionRepeatableRepsonse[repeatableQuestionsNumber][1];
-      document.getElementById("opt30").innerHTML = questionRepeatableRepsonse[repeatableQuestionsNumber][2];
+      if (changed == false) {
+        document.getElementById("opt1").innerHTML = questionRepeatableRepsonse2[repeatableQuestionsNumber][0];
+        document.getElementById("opt2").innerHTML = questionRepeatableRepsonse2[repeatableQuestionsNumber][1];
+        document.getElementById("opt3").innerHTML = questionRepeatableRepsonse2[repeatableQuestionsNumber][2];
+      } else {
+        document.getElementById("opt10").innerHTML = questionRepeatableRepsonse2[repeatableQuestionsNumber][0];
+        document.getElementById("opt20").innerHTML = questionRepeatableRepsonse2[repeatableQuestionsNumber][1];
+        document.getElementById("opt30").innerHTML = questionRepeatableRepsonse2[repeatableQuestionsNumber][2];
+      }
     }
   }
 }
