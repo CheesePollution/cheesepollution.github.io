@@ -578,6 +578,15 @@ function lose() {
 }
 
 function changeBtn() {
+  if (changed == false) {
+    document.getElementById("opt1").style.width = width*0.5 + "px";
+    document.getElementById("opt2").style.width = width*0.5 + "px";
+    document.getElementById("opt3").style.width = width*0.5 + "px";
+  } else {
+    document.getElementById("opt10").style.width = width*0.5 + "px";
+    document.getElementById("opt20").style.width = width*0.5 + "px";
+    document.getElementById("opt30").style.width = width*0.5 + "px";
+  }
   if (selectedProbability[0] == 0) {
     if (changed == false) {
       document.getElementById("opt1").innerHTML = questionsResponse[questionNumber][0];
@@ -587,6 +596,7 @@ function changeBtn() {
       document.getElementById("opt10").innerHTML = questionsResponse[questionNumber][0];
       document.getElementById("opt20").innerHTML = questionsResponse[questionNumber][1];
       document.getElementById("opt30").innerHTML = questionsResponse[questionNumber][2];
+
     }
   } else {
     if (changed == false) {
