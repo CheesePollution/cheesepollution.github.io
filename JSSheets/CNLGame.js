@@ -138,7 +138,7 @@ function init() { //check if change section or no and stuff //shuffles and sets 
 
   if (pollPerc/10 > 6 && pollPerc/10 < 8) {
     status = "Semi-Dangerous";
-    document.getElementById("randomImg").src = "Images/Backgroundimage-veryTriggered.png";
+    document.getElementById("randomImg").src = "Images/BackgroundImage-veryTriggered.png";
   } else if (pollPerc/10 >= 8 && pollPerc/10 < 10) {
     status = "Very Dangerous, Almost Dead";
     document.getElementById("randomImg").src = "Images/BackgroundImage-75%.png";
