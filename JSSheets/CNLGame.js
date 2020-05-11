@@ -542,6 +542,18 @@ function newQuestion() {
     } else if (selectedProbability[0] == 1) {
       document.getElementById("proposal").innerHTML = repeatableQuestions[0];
     }
+    
+    if (typeof currentQuestion === "undefined" && selectedProbability[0] == 0) {
+      if (questionSection == 1){
+        currentQuestion = questions1Q[2];
+      } else if (questionSection == 2) {
+        currentQuestion = questions2Q[2];
+      } else if (questionSection == 3) {
+        currentQuestion = questions3Q[2];
+      } else if (questionSection == 4) {
+        currentQuestion = questions4Q[2];
+      }
+    }
 
     if (questionIndex == 5 || questionIndex == 8 || questionIndex == 16){
       init();
